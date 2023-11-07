@@ -1,0 +1,4 @@
+name: sharpglow
+version: '${project.version}'
+main: com.bluefalconhd.sharpglow.Sharpglow
+api-version: '1.20'
