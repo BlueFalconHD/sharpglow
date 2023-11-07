@@ -7,10 +7,17 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class PlayerKillDeathListener implements Listener {
+
+    private Sharpglow plugin;
+
+    public PlayerKillDeathListener(Sharpglow sharpglow) {
+        plugin = sharpglow;
+    }
 
     private boolean canEnchantWithSharpness(Material material) {
         // Define a list of materials that can be enchanted with Sharpness.
@@ -40,7 +47,7 @@ public class PlayerKillDeathListener implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand(); // Get the item in the player's main hand.
         if (canEnchantWithSharpness(item.getType())) { // Check if the item can be enchanted with Sharpness.
             // Apply the temporary enchantment to the item for 30 mins
-            Sharpglow.getTemporaryEnchantmentManager().applyTemporaryEnchantment(item, Enchantment.DAMAGE_ALL, 2, 20 * 60 * 30, player);
+            plugin.getTemporaryEnchantmentManager().applyTemporaryEnchantment(item, Enchantment.DAMAGE_ALL, 2, 20 * 60 * 30, player);
         }
 
         // give player glowing effect for 30 mins

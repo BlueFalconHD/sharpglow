@@ -16,7 +16,7 @@ public final class Sharpglow extends JavaPlugin {
         // Register the MilkCancelListener class as a listener
         getServer().getPluginManager().registerEvents(new MilkCancelListener(), this);
         // Register the PlayerKillDeathListener class as a listener
-        getServer().getPluginManager().registerEvents(new PlayerKillDeathListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerKillDeathListener(this), this);
         //
     }
 
@@ -26,7 +26,7 @@ public final class Sharpglow extends JavaPlugin {
         getLogger().info("Sharpglow has been disabled!");
     }
 
-    public static TemporaryEnchantmentManager getTemporaryEnchantmentManager() {
+    public TemporaryEnchantmentManager getTemporaryEnchantmentManager() {
         return tempEnchantManager;
     }
 }
